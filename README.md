@@ -2,6 +2,20 @@
 
 FactoryPulse is an industrial energy monitoring and maintenance demo. It receives machine telemetry, opens a single alarm when configured thresholds are exceeded, streams updates to a live dashboard, and produces date-filtered energy summaries.
 
+## Languages and technologies
+
+| Language / technology | Used for |
+| --- | --- |
+| **Java 17** | Identity, device, alarm, and maintenance service boundaries with Spring Boot |
+| **Python 3.12** | FastAPI telemetry, realtime, and reporting API; machine simulator and automated tests |
+| **TypeScript** | Type-safe Next.js and React dashboard |
+| **HTML / CSS** | Responsive operations dashboard structure and visual design |
+| **SQL** | Measurement, device, threshold, alarm, and maintenance data persistence |
+| **JSON / JSON Schema** | REST payloads and shared event contracts |
+| **YAML** | Docker Compose, Traefik, and GitHub Actions configuration |
+
+Main frameworks and infrastructure: **Spring Boot**, **FastAPI**, **Next.js**, **React**, **PostgreSQL**, **RabbitMQ**, **WebSocket**, **Docker Compose**, **Traefik**, and **GitHub Actions**.
+
 ## Quick start
 
 ```bash
@@ -41,4 +55,3 @@ The runnable local demo uses the FastAPI platform service so the full scenario w
 5. Assign or resolve alarms and query `/api/v1/reports/energy`.
 
 All timestamps are UTC. Errors use `{code, message, requestId}`.
-
