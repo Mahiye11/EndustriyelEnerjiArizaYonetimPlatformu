@@ -1,0 +1,17 @@
+http:
+  middlewares:
+    telemetry-rate-limit:
+      rateLimit:
+        average: 20
+        burst: 40
+  routers:
+    api:
+      rule: PathPrefix(`/api`) || PathPrefix(`/ws`)
+      service: api
+      middlewares: [telemetry-rate-limit]
+  services:
+    api:
+      loadBalancer:
+        servers:
+          - url: http://api:8000
+

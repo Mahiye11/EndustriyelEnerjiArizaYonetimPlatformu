@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://factorypulse.local/contracts/measurement.received.schema.json",
+  "title": "measurement.received",
+  "type": "object",
+  "required": ["eventId", "eventType", "occurredAt", "factoryId", "deviceId", "payload"],
+  "properties": {
+    "eventId": {"type": "string", "format": "uuid"},
+    "eventType": {"const": "measurement.received"},
+    "occurredAt": {"type": "string", "format": "date-time"},
+    "factoryId": {"type": "string"},
+    "deviceId": {"type": "string"},
+    "payload": {
+      "type": "object",
+      "required": ["measurementId", "powerKw", "temperatureC", "running"],
+      "properties": {
+        "measurementId": {"type": "string", "format": "uuid"},
+        "powerKw": {"type": "number", "minimum": 0},
+        "temperatureC": {"type": "number"},
+        "running": {"type": "boolean"}
+      }
+    }
+  }
+}
+
